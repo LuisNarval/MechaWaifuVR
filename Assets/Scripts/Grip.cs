@@ -40,6 +40,8 @@ public class Grip : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         RecibirInput();
+
+
        
 
     }
@@ -50,7 +52,7 @@ public class Grip : MonoBehaviour{
     }
 
     void RecibirInput(){
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.0f){
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.0f){
             GatilloIzquierdo = true;
             anim_Brazos.SetBool("LeftGrab",true);
             IntentarAnclaje();
@@ -59,7 +61,7 @@ public class Grip : MonoBehaviour{
             anim_Brazos.SetBool("LeftGrab", false);
         }
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.0f){
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.0f){
             GatilloDerecho = true;
             anim_Brazos.SetBool("RightGrab", true);
             IntentarAnclaje();
@@ -71,11 +73,11 @@ public class Grip : MonoBehaviour{
 
 
 
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.0f){
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.0f){
             transCabina.GetComponent<Rigidbody>().AddForce( posManoIzquierda.forward * fuerzaJet, ForceMode.VelocityChange);
         }
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.0f){
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.0f){
             transCabina.GetComponent<Rigidbody>().AddForce(posManoDerecha.forward*fuerzaJet, ForceMode.VelocityChange);
         }
 
